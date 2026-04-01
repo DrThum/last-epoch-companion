@@ -1,10 +1,11 @@
-import { endgameProgression } from '../data/gameKnowledge'
+import { useEffect, useRef, useState } from 'react'
+import { topics } from '../data/gameKnowledge'
 import type { KnowledgeTopic } from '../data/gameKnowledge'
 import './GameKnowledge.css'
 
 function Checklist({ topic }: { topic: KnowledgeTopic }) {
   return (
-    <div className="checklist-topic">
+    <section id={topic.id} className="checklist-topic">
       <div className="topic-header">
         <h2 className="topic-title">{topic.title}</h2>
         <p className="topic-subtitle">{topic.subtitle}</p>
@@ -34,7 +35,9 @@ function Checklist({ topic }: { topic: KnowledgeTopic }) {
                 <summary className="step-details-toggle">Details</summary>
                 <ul className="step-detail-list">
                   {step.details.map((d, i) => (
-                    <li key={i}>{d}</li>
+                    <li key={i} className={d.startsWith('—') ? 'detail-section-label' : ''}>
+                      {d}
+                    </li>
                   ))}
                 </ul>
               </details>
@@ -42,11 +45,33 @@ function Checklist({ topic }: { topic: KnowledgeTopic }) {
           </li>
         ))}
       </ol>
-    </div>
+    </section>
   )
 }
 
 export default function GameKnowledge() {
+  const [activeId, setActiveId] = useState(topics[0].id)
+  const observerRef = useRef<IntersectionObserver | null>(null)
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      entries => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveId(entry.target.id)
+        }
+      },
+      { rootMargin: '-20% 0px -75% 0px' }
+    )
+    topics.forEach(t => {
+      const el = document.getElementById(t.id)
+      if (el) observerRef.current!.observe(el)
+    })
+    return () => observerRef.current?.disconnect()
+  }, [])
+
+  const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
   return (
     <div className="game-knowledge">
       <div className="knowledge-header">
@@ -57,7 +82,19 @@ export default function GameKnowledge() {
         </p>
       </div>
 
-      <Checklist topic={endgameProgression} />
+      <nav className="topic-nav">
+        {topics.map(t => (
+          <button
+            key={t.id}
+            className={['topic-nav-btn', activeId === t.id ? 'active' : ''].join(' ')}
+            onClick={() => scrollTo(t.id)}
+          >
+            {t.title}
+          </button>
+        ))}
+      </nav>
+
+      {topics.map(t => <Checklist key={t.id} topic={t} />)}
     </div>
   )
 }

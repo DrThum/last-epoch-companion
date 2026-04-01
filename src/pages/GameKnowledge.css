@@ -34,9 +34,51 @@
   line-height: 1.7;
 }
 
+/* ── Topic nav ──────────────────────────────────────────────── */
+.topic-nav {
+  position: sticky;
+  top: 56px;
+  z-index: 50;
+  display: flex;
+  gap: 2px;
+  padding: 0.5rem 0;
+  background: var(--bg-base);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.topic-nav::-webkit-scrollbar { display: none; }
+
+.topic-nav-btn {
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.topic-nav-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-raised);
+}
+
+.topic-nav-btn.active {
+  color: var(--gold);
+  background: var(--gold-muted);
+  border-color: var(--border-accent);
+}
+
 /* ── Topic ──────────────────────────────────────────────────── */
 .checklist-topic {
   margin-bottom: 3rem;
+  scroll-margin-top: 110px;
 }
 
 .topic-header {
@@ -224,4 +266,19 @@ details[open] .step-details-toggle {
   left: 0;
   color: var(--gold-dim);
   font-weight: 700;
+}
+
+.step-detail-list li.detail-section-label {
+  color: var(--gold-dim);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-left: 0;
+  margin-top: 0.4rem;
+}
+
+.step-detail-list li.detail-section-label::before {
+  display: none;
 }
