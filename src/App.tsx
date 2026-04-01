@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import Home from './pages/Home'
 import BuildGuide from './pages/BuildGuide'
 import GameKnowledge from './pages/GameKnowledge'
+import KnowledgeTopicPage from './pages/KnowledgeTopicPage'
 import './App.css'
 
 const NAV_LINKS = [
@@ -46,6 +47,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/builds/witchfire-warlock" element={<BuildGuide />} />
             <Route path="/knowledge" element={<GameKnowledge />} />
+            <Route path="/knowledge/:topicId" element={<KnowledgeTopicPage />} />
           </Routes>
         </main>
 

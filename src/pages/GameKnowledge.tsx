@@ -1,77 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { topics } from '../data/gameKnowledge'
-import type { KnowledgeTopic } from '../data/gameKnowledge'
 import './GameKnowledge.css'
 
-function Checklist({ topic }: { topic: KnowledgeTopic }) {
-  return (
-    <section id={topic.id} className="checklist-topic">
-      <div className="topic-header">
-        <h2 className="topic-title">{topic.title}</h2>
-        <p className="topic-subtitle">{topic.subtitle}</p>
-      </div>
-
-      <ol className="checklist">
-        {topic.steps.map((step, idx) => (
-          <li key={step.id} className="checklist-step">
-            <div className="step-spine">
-              <div className="step-number">{idx + 1}</div>
-              {idx < topic.steps.length - 1 && <div className="step-line" />}
-            </div>
-
-            <div className="step-body">
-              <div className="step-header">
-                <span className="step-title">{step.title}</span>
-                {step.tag && <span className="step-tag s4">{step.tag}</span>}
-              </div>
-
-              <p className="step-summary">{step.summary}</p>
-
-              {step.callout && (
-                <p className="step-callout">{step.callout}</p>
-              )}
-
-              <details className="step-details">
-                <summary className="step-details-toggle">Details</summary>
-                <ul className="step-detail-list">
-                  {step.details.map((d, i) => (
-                    <li key={i} className={d.startsWith('—') ? 'detail-section-label' : ''}>
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </section>
-  )
-}
-
 export default function GameKnowledge() {
-  const [activeId, setActiveId] = useState(topics[0].id)
-  const observerRef = useRef<IntersectionObserver | null>(null)
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      entries => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActiveId(entry.target.id)
-        }
-      },
-      { rootMargin: '-20% 0px -75% 0px' }
-    )
-    topics.forEach(t => {
-      const el = document.getElementById(t.id)
-      if (el) observerRef.current!.observe(el)
-    })
-    return () => observerRef.current?.disconnect()
-  }, [])
-
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-
   return (
     <div className="game-knowledge">
       <div className="knowledge-header">
@@ -82,19 +13,23 @@ export default function GameKnowledge() {
         </p>
       </div>
 
-      <nav className="topic-nav">
-        {topics.map(t => (
-          <button
-            key={t.id}
-            className={['topic-nav-btn', activeId === t.id ? 'active' : ''].join(' ')}
-            onClick={() => scrollTo(t.id)}
-          >
-            {t.title}
-          </button>
+      <div className="knowledge-grid">
+        {topics.map(topic => (
+          <Link key={topic.id} to={`/knowledge/${topic.id}`} className="knowledge-card card">
+            <div className="knowledge-card-header">
+              <div className="knowledge-card-title">{topic.title}</div>
+              <span className="knowledge-card-arrow">→</span>
+            </div>
+            <p className="knowledge-card-desc">{topic.subtitle}</p>
+            <div className="knowledge-card-footer">
+              <span className="tag">{topic.steps.length} steps</span>
+              {topic.steps.some(s => s.tag === 'Season 4') && (
+                <span className="step-tag s4">Season 4</span>
+              )}
+            </div>
+          </Link>
         ))}
-      </nav>
-
-      {topics.map(t => <Checklist key={t.id} topic={t} />)}
+      </div>
     </div>
   )
 }
