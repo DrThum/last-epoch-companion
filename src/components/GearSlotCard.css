@@ -1,0 +1,171 @@
+.gear-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.gear-card.is-unique {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.gear-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.gear-slot-name {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding-top: 0.1rem;
+}
+
+/* ── Toggle ─────────────────────────────────────────────────── */
+.gear-toggle {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.gear-toggle-btn {
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  color: var(--text-muted);
+  transition: all 0.15s;
+  line-height: 1.4;
+}
+
+.gear-toggle-btn:hover {
+  color: var(--text-secondary);
+  border-color: var(--border-accent);
+}
+
+.gear-toggle-btn.active.crafted {
+  background: var(--bg-overlay);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.gear-toggle-btn.active.unique {
+  background: var(--gold-muted);
+  color: var(--gold);
+  border-color: var(--border-accent);
+}
+
+/* ── Item badge ─────────────────────────────────────────────── */
+.gear-item-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.15em 0.5em;
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+}
+
+.gear-item-badge.crafted {
+  color: var(--text-secondary);
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+}
+
+.gear-item-badge.unique {
+  color: var(--gold);
+  background: var(--gold-muted);
+  border: 1px solid var(--border-accent);
+}
+
+/* ── Active item row (when toggle is visible) ───────────────── */
+.gear-active-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lp-label {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--gold-dim);
+  letter-spacing: 0.03em;
+}
+
+/* ── Mode note ──────────────────────────────────────────────── */
+.gear-mode-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding: 0.4rem 0.6rem;
+  background: var(--bg-raised);
+  border-left: 2px solid var(--border-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* ── Affixes ────────────────────────────────────────────────── */
+.gear-affixes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.affix-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.affix-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2em 0.55em 0.2em 0.35em;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.affix-tag.prefix {
+  background: rgba(200, 168, 75, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(200, 168, 75, 0.25);
+}
+
+.affix-tag.suffix {
+  background: rgba(80, 140, 200, 0.12);
+  color: #7ab3d8;
+  border: 1px solid rgba(80, 140, 200, 0.25);
+}
+
+.affix-kind-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  font-family: var(--font-display);
+}
+
+/* ── Slot note ──────────────────────────────────────────────── */
+.gear-slot-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  line-height: 1.5;
+}

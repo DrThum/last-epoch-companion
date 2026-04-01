@@ -1,0 +1,511 @@
+.build-guide {
+  max-width: 1100px;
+}
+
+/* ── Build header ───────────────────────────────────────────── */
+.build-header {
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.build-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.build-class-badge {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.build-patch {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.build-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  background: linear-gradient(120deg, var(--gold-bright) 0%, var(--gold) 60%, var(--gold-dim) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+}
+
+.build-summary {
+  max-width: 680px;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 0.85rem;
+}
+
+.build-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.build-pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: 600px;
+}
+
+.pros, .cons {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+}
+
+.pros h4 {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a9e6f;
+  margin-bottom: 0.5rem;
+}
+
+.cons h4 {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9e5a5a;
+  margin-bottom: 0.5rem;
+}
+
+.pros ul, .cons ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pros li::before {
+  content: '+ ';
+  color: #5a9e6f;
+  font-weight: 700;
+}
+
+.cons li::before {
+  content: '− ';
+  color: #9e5a5a;
+  font-weight: 700;
+}
+
+.pros li, .cons li {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Section nav ────────────────────────────────────────────── */
+.section-nav {
+  position: sticky;
+  top: 56px;
+  z-index: 50;
+  display: flex;
+  gap: 2px;
+  padding: 0.5rem 0;
+  background: var(--bg-base);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.section-nav::-webkit-scrollbar { display: none; }
+
+.section-nav-btn {
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.section-nav-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-raised);
+}
+
+.section-nav-btn.active {
+  color: var(--gold);
+  background: var(--gold-muted);
+  border-color: var(--border-accent);
+}
+
+/* ── Sections ───────────────────────────────────────────────── */
+.guide-section {
+  padding: 2.5rem 0 1rem;
+  scroll-margin-top: 110px;
+}
+
+.section-heading {
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section-intro {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 720px;
+  margin-bottom: 1.25rem;
+}
+
+.section-intro a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Gear section ───────────────────────────────────────────── */
+.priority-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.priority-card h4 {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.priority-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.priority-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.priority-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  align-self: center;
+  font-style: italic;
+}
+
+.gear-strategy-note {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-accent);
+  border-left-width: 3px;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.gear-strategy-note strong { color: var(--gold); }
+.gear-strategy-note em { color: var(--text-primary); font-style: normal; }
+
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+/* affix tags used outside GearSlotCard */
+.affix-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2em 0.55em 0.2em 0.35em;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.affix-tag.prefix {
+  background: rgba(200, 168, 75, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(200, 168, 75, 0.25);
+}
+
+.affix-tag.suffix {
+  background: rgba(80, 140, 200, 0.12);
+  color: #7ab3d8;
+  border: 1px solid rgba(80, 140, 200, 0.25);
+}
+
+.affix-kind-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  font-family: var(--font-display);
+}
+
+/* ── Idols ──────────────────────────────────────────────────── */
+.idol-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.idol-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.idol-type {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.affix-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+/* ── Blessings ──────────────────────────────────────────────── */
+.blessings-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.blessings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.blessings-table th {
+  background: var(--bg-raised);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.blessings-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.blessings-table tr:last-child td {
+  border-bottom: none;
+}
+
+.blessings-table tr:hover td {
+  background: var(--bg-raised);
+}
+
+.timeline-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  width: 200px;
+}
+
+.blessing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.blessing-name {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.blessing-any {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.blessing-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ── Skills ─────────────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.75rem;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.skill-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.skill-points {
+  font-size: 0.7rem;
+}
+
+.skill-role {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.skill-notes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.skill-notes li {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding-left: 0.75rem;
+  position: relative;
+}
+
+.skill-notes li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+}
+
+/* ── Passives ───────────────────────────────────────────────── */
+.passives-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 720px;
+}
+
+.passive-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.passive-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.passive-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.passive-points {
+  font-size: 0.7rem;
+}
+
+.passive-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Tips / FAQ ─────────────────────────────────────────────── */
+.tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 720px;
+}
+
+.tip-item {
+  cursor: pointer;
+}
+
+.tip-question {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tip-question::before {
+  content: '▶';
+  font-size: 0.55rem;
+  color: var(--gold-dim);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+details[open] .tip-question::before {
+  transform: rotate(90deg);
+}
+
+.tip-answer {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-top: 0.6rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border-accent);
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .build-pros-cons {
+    grid-template-columns: 1fr;
+  }
+}
