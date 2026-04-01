@@ -45,6 +45,97 @@
   padding-top: 2.5rem;
 }
 
+.coming-soon-section {
+  padding-top: 2rem;
+}
+
+/* ── Build cards ─────────────────────────────────────────────── */
+.build-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.build-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  text-decoration: none;
+  border-color: var(--border-accent);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.build-card:hover {
+  border-color: var(--gold-dim);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+  color: inherit;
+}
+
+.build-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.build-card-class {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.2rem;
+}
+
+.build-card-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.build-card-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.build-patch-badge {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.5em;
+}
+
+.build-card-arrow {
+  font-size: 1rem;
+  color: var(--gold-dim);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.build-card:hover .build-card-arrow {
+  transform: translateX(3px);
+  color: var(--gold);
+}
+
+.build-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.build-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
 .section-title {
   font-size: 1.125rem;
   letter-spacing: 0.08em;

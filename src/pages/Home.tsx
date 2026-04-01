@@ -1,23 +1,27 @@
+import { Link } from 'react-router-dom'
 import './Home.css'
 
-const FEATURE_CARDS = [
+const BUILDS = [
   {
-    icon: '⚔️',
-    title: 'Build Guide',
-    description: 'Step-by-step progression for your chosen build — skill trees, gear priorities, passive breakpoints.',
-    status: 'coming-soon',
+    to: '/builds/witchfire-warlock',
+    name: 'Witchfire Warlock',
+    class: 'Acolyte · Warlock',
+    patch: '1.4',
+    description: 'Passive Fire & Necrotic DoT with no target cap. Burns down packs and bosses without spamming skills.',
+    tags: ['DoT', 'Monolith Farmer', 'Beginner'],
   },
+]
+
+const COMING_SOON = [
   {
     icon: '📖',
     title: 'Game Knowledge',
-    description: 'Distilled notes from guides and videos — mechanics, systems, tips — so you never have to rewatch.',
-    status: 'coming-soon',
+    description: 'Distilled notes from guides and videos — mechanics, systems, tips.',
   },
   {
     icon: '🗺️',
     title: 'Progression Tracker',
-    description: 'Track your leveling checklist, quest milestones, and monolith progress locally in your browser.',
-    status: 'coming-soon',
+    description: 'Track leveling checklist, quest milestones, and monolith progress locally.',
   },
 ]
 
@@ -34,17 +38,39 @@ export default function Home() {
       </section>
 
       <section className="features">
-        <h2 className="section-title">What's coming</h2>
+        <h2 className="section-title">Builds</h2>
+        <div className="build-cards">
+          {BUILDS.map((build) => (
+            <Link key={build.to} to={build.to} className="build-card card">
+              <div className="build-card-header">
+                <div>
+                  <div className="build-card-class">{build.class}</div>
+                  <div className="build-card-name">{build.name}</div>
+                </div>
+                <div className="build-card-right">
+                  <span className="build-patch-badge">{build.patch}</span>
+                  <span className="build-card-arrow">→</span>
+                </div>
+              </div>
+              <p className="build-card-desc">{build.description}</p>
+              <div className="build-card-tags">
+                {build.tags.map(t => <span key={t} className="tag">{t}</span>)}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="features coming-soon-section">
+        <h2 className="section-title">Coming soon</h2>
         <div className="feature-grid">
-          {FEATURE_CARDS.map((card) => (
+          {COMING_SOON.map((card) => (
             <div key={card.title} className="feature-card card">
               <div className="feature-icon">{card.icon}</div>
               <div className="feature-body">
                 <div className="feature-header">
                   <h3 className="feature-title">{card.title}</h3>
-                  {card.status === 'coming-soon' && (
-                    <span className="tag">Soon</span>
-                  )}
+                  <span className="tag">Soon</span>
                 </div>
                 <p className="feature-desc">{card.description}</p>
               </div>
