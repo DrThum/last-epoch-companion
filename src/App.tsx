@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import Home from './pages/Home'
 import BuildGuide from './pages/BuildGuide'
+import GameKnowledge from './pages/GameKnowledge'
 import './App.css'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home', end: true },
   { to: '/builds/witchfire-warlock', label: 'Witchfire Warlock', end: false },
+  { to: '/knowledge', label: 'Game Knowledge', end: false },
 ]
 
 export default function App() {
@@ -43,6 +45,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/builds/witchfire-warlock" element={<BuildGuide />} />
+            <Route path="/knowledge" element={<GameKnowledge />} />
           </Routes>
         </main>
 

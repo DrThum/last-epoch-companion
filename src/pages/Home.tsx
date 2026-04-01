@@ -14,11 +14,6 @@ const BUILDS = [
 
 const COMING_SOON = [
   {
-    icon: '📖',
-    title: 'Game Knowledge',
-    description: 'Distilled notes from guides and videos — mechanics, systems, tips.',
-  },
-  {
     icon: '🗺️',
     title: 'Progression Tracker',
     description: 'Track leveling checklist, quest milestones, and monolith progress locally.',
@@ -35,6 +30,28 @@ export default function Home() {
           Build references, game knowledge, and a progress tracker — all offline-first, no account needed.
         </p>
         <div className="hero-divider" />
+      </section>
+
+      <section className="features">
+        <h2 className="section-title">Knowledge</h2>
+        <div className="build-cards" style={{ marginBottom: '2rem' }}>
+          <Link to="/knowledge" className="build-card card">
+            <div className="build-card-header">
+              <div>
+                <div className="build-card-class">Reference</div>
+                <div className="build-card-name">Game Knowledge</div>
+              </div>
+              <div className="build-card-right">
+                <span className="build-card-arrow">→</span>
+              </div>
+            </div>
+            <p className="build-card-desc">Endgame progression loop, system explanations, and quick-reference checklists — no videos required.</p>
+            <div className="build-card-tags">
+              <span className="tag">Endgame</span>
+              <span className="tag">Season 4</span>
+            </div>
+          </Link>
+        </div>
       </section>
 
       <section className="features">
