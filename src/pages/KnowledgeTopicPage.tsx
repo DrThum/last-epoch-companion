@@ -28,7 +28,7 @@ export default function KnowledgeTopicPage() {
             <div className="step-body">
               <div className="step-header">
                 <span className="step-title">{step.title}</span>
-                {step.tag && <span className="step-tag s4">{step.tag}</span>}
+                {step.tag && <span className={`step-tag ${step.tag === 'Season 4' ? 's4' : 's3'}`}>{step.tag}</span>}
               </div>
 
               <p className="step-summary">{step.summary}</p>

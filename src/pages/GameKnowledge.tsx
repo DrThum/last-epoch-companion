@@ -23,9 +23,9 @@ export default function GameKnowledge() {
             <p className="knowledge-card-desc">{topic.subtitle}</p>
             <div className="knowledge-card-footer">
               <span className="tag">{topic.steps.length} steps</span>
-              {topic.steps.some(s => s.tag === 'Season 4') && (
-                <span className="step-tag s4">Season 4</span>
-              )}
+              {(['Season 4', 'Season 3'] as const).filter(t => topic.steps.some(s => s.tag === t)).map(t => (
+                <span key={t} className={`step-tag ${t === 'Season 4' ? 's4' : 's3'}`}>{t}</span>
+              ))}
             </div>
           </Link>
         ))}

@@ -4,7 +4,7 @@ export interface ChecklistStep {
   summary: string
   details: string[]
   callout?: string      // highlighted warning/tip
-  tag?: 'Season 4'
+  tag?: 'Season 4' | 'Season 3'
 }
 
 export interface KnowledgeTopic {
@@ -268,4 +268,123 @@ export const endgameProgression: KnowledgeTopic = {
   ],
 }
 
-export const topics: KnowledgeTopic[] = [endgameProgression, wovenfaction]
+export const riftBeasts: KnowledgeTopic = {
+  id: 'rift-beasts',
+  title: 'Rift Beasts & Primal Hunt',
+  subtitle: 'Find Mysterious Rifts, evolve your beast, and farm Primordial materials',
+  steps: [
+    {
+      id: 'what-is-primal-hunt',
+      title: 'What is the Primal Hunt?',
+      summary: 'An optional encounter system where you find and battle evolving Rift Beasts in exchange for Primordial Materials and exclusive items.',
+      tag: 'Season 3',
+      details: [
+        'Available in both Campaign (from around level 10) and Monolith of Fate.',
+        'Introduced in Season 3 (Beneath Ancient Skies) and remains available in Season 4.',
+        'Entirely optional — but rewards are valuable for late-game crafting and Memory Amber farming.',
+        'Core loop: find a rift → fight the beast → choose an Evolution → repeat to build a lineage.',
+      ],
+    },
+    {
+      id: 'find-mysterious-rift',
+      title: 'Find a Mysterious Rift',
+      summary: 'Look for the claw-mark icon on your minimap. Appears randomly in Campaign zones and Monolith Echoes.',
+      details: [
+        'Shows as a claw-mark symbol on the minimap — similar to Shrines or Rune Prisons.',
+        'Entering transports you to an Ancient Cave where the Rift Beast and its nest are.',
+        'Torn Rifts also exist and look identical on the map — but they summon the Rift Beast directly into your current zone instead of teleporting you.',
+        'Read the rift description carefully before entering to know which type you\'re dealing with.',
+        'Weaver Tree node: Nesting Grove adds Rift Beast encounters into nearby Echoes, making them easier to find.',
+      ],
+      callout: 'Torn Rifts spawn the beast in your current area alongside all other enemies — make sure you\'re ready before engaging.',
+    },
+    {
+      id: 'ancient-cave',
+      title: 'Fight Through the Ancient Cave',
+      summary: 'Clear the cave to reach the Rift Beast boss. Skarven Bloodhorn accompanies you from the entrance.',
+      details: [
+        'Enemies inside Mysterious Rifts drop Ancient Bones instead of Gold — pick them up.',
+        'Skarven Bloodhorn (NPC) assists you in combat and is also found at The Garden in Chapter 10.',
+        'The Rift Beast boss has randomised modifiers, similar to a Nemesis encounter.',
+        'Defeating the beast starts the Evolution selection — three unhatched eggs appear at its nest.',
+      ],
+    },
+    {
+      id: 'choose-evolution',
+      title: 'Choose an Evolution',
+      summary: 'Three eggs appear after each kill. Pick one hatchling — your choice determines the beast\'s new trait and what materials it drops next encounter.',
+      details: [
+        'Each Evolution adds a new trait to the beast (e.g., Shoulder Vines, Magma Head, elemental attacks).',
+        'The bottom of each Evolution card shows which Primordial Material that path produces.',
+        'Your choice persists — you\'re building a single evolving lineage across multiple encounters.',
+        'Over 60 Evolution options exist, so each lineage develops uniquely.',
+        'Pick based on what materials you need AND what mechanics your build can handle (e.g., avoid add-heavy if your AoE is weak).',
+      ],
+    },
+    {
+      id: 'build-lineage',
+      title: 'Build Your Lineage',
+      summary: 'A lineage holds up to 4 Evolutions by default. Woven Echo "Rampant Coast" raises the cap to 7. Max lineage = guaranteed Evolution\'s End unique.',
+      details: [
+        'Each additional Evolution makes the beast harder — and more rewarding.',
+        'Completing a full lineage (max Evolutions) guarantees an Evolution\'s End unique item drop.',
+        'Use Torn Rifts in your current zone to fight your evolved beast without finding a new Mysterious Rift.',
+        'Weaver Tree: Rampant Coast Woven Echo raises the Evolution cap to 7 and frequently yields Crystallized Hearts — highest priority echo for serious Primal Hunters.',
+        'Weaver Tree: Bloodline Glade is best for farming Primordial Exalted Champion-modifiers items.',
+      ],
+    },
+    {
+      id: 'primordial-materials',
+      title: 'Collect Primordial Materials',
+      summary: 'Each Rift Beast drops different materials based on its Evolution line. These are the currency for Skarven\'s shop.',
+      details: [
+        'Ancient Bones: most common — drop from all enemies inside Mysterious Rifts instead of Gold.',
+        'Primordial Horns, Feathers, Fangs, Petals: dropped based on the beast\'s Evolution line.',
+        'Crystallized Hearts: rarest material — from Rampant Coast echoes or specific evolutions.',
+        'Each Evolution card shows which material that path produces — plan your lineage accordingly.',
+        'Bag of Primordial Materials (10,000 Bones from Skarven) can convert Bones into other materials with a small chance at a Crystallized Heart.',
+      ],
+    },
+    {
+      id: 'skarven-shop',
+      title: 'Trade with Skarven Bloodhorn',
+      summary: 'Spend Primordial Materials at Skarven\'s shop for loot bags, Primordial items, and Runes of Evolution.',
+      details: [
+        'Bag of Amber: 1 Crystallized Heart + 10 Horns → 5,000 Memory Amber (Woven faction only — massive amber value).',
+        'Bag of Uniques: 10 Fangs + 10 Feathers → random Unique items.',
+        'Bag of Shards: 10 Petals → random Shards.',
+        'Bag of Glyphs: 10 Fangs → random Glyphs.',
+        'Bag of Gold: 5 Feathers → random Gold.',
+        'Primordial Unique items available directly for specific material combinations.',
+        'Rune of Evolution: purchased for materials — upgrades a Tier 7 affix to Tier 8.',
+      ],
+      callout: 'Bag of Amber is the highest-value trade for Woven faction members — Crystallized Hearts are worth hoarding for this.',
+    },
+    {
+      id: 'primordial-items',
+      title: 'Primordial Items & Rune of Evolution',
+      summary: 'Primordial Exalted items have T8 affixes — above the normal max. You can only equip ONE Primordial item at a time.',
+      details: [
+        'Primordial Unique items have T7 affixes; Primordial Exalted items have T8 affixes.',
+        'Apply a Rune of Evolution to a Primordial Item to randomly upgrade one T7 affix to T8.',
+        'Rune of Evolution does NOT consume Forging Potential — safe to use without worry.',
+        'Only one Primordial item (Unique or Exalted) can be equipped at a time — plan which slot gets it.',
+        'The T8 affix from Sinathia\'s Dying Breath Reforged on the Witchfire Warlock is an example of this system.',
+      ],
+    },
+    {
+      id: 'weaver-synergies',
+      title: 'Weaver Tree Synergies',
+      summary: 'Three Woven Echoes directly enhance the Primal Hunt. Essential if you\'re farming Rift Beasts seriously.',
+      details: [
+        'Nesting Grove: Adds Rift Beast encounters into nearby Echoes — passive Rift Beast farming during normal Monolith runs.',
+        'Bloodline Glade: Best for farming Primordial Exalted items with high-tier Champion modifiers.',
+        'Rampant Coast: Raises Evolution cap to 7 (from 4) and frequently drops Crystallized Hearts — highest priority.',
+        'Weaver Tree also has general nodes to increase Rift Beast encounter rates and improve material yields.',
+        'Running the Bag of Amber trade loop (Crystallized Hearts → 5,000 Memory Amber each) is a major source of Woven faction reputation.',
+      ],
+    },
+  ],
+}
+
+export const topics: KnowledgeTopic[] = [endgameProgression, wovenfaction, riftBeasts]
