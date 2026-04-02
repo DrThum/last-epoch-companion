@@ -12,13 +12,6 @@ const BUILDS = [
   },
 ]
 
-const COMING_SOON = [
-  {
-    icon: '🗺️',
-    title: 'Progression Tracker',
-    description: 'Track leveling checklist, quest milestones, and monolith progress locally.',
-  },
-]
 
 export default function Home() {
   return (
@@ -55,6 +48,29 @@ export default function Home() {
       </section>
 
       <section className="features">
+        <h2 className="section-title">Tracker</h2>
+        <div className="build-cards" style={{ marginBottom: '2rem' }}>
+          <Link to="/tracker" className="build-card card">
+            <div className="build-card-header">
+              <div>
+                <div className="build-card-class">Witchfire Warlock · Season 4</div>
+                <div className="build-card-name">Progression Tracker</div>
+              </div>
+              <div className="build-card-right">
+                <span className="build-card-arrow">→</span>
+              </div>
+            </div>
+            <p className="build-card-desc">Track normal & empowered monolith clears, blessings with roll quality, and build milestones. Saved locally.</p>
+            <div className="build-card-tags">
+              <span className="tag">Monoliths</span>
+              <span className="tag">Blessings</span>
+              <span className="tag">Offline</span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      <section className="features">
         <h2 className="section-title">Builds</h2>
         <div className="build-cards">
           {BUILDS.map((build) => (
@@ -78,23 +94,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="features coming-soon-section">
-        <h2 className="section-title">Coming soon</h2>
-        <div className="feature-grid">
-          {COMING_SOON.map((card) => (
-            <div key={card.title} className="feature-card card">
-              <div className="feature-icon">{card.icon}</div>
-              <div className="feature-body">
-                <div className="feature-header">
-                  <h3 className="feature-title">{card.title}</h3>
-                  <span className="tag">Soon</span>
-                </div>
-                <p className="feature-desc">{card.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
     </div>
   )
 }
